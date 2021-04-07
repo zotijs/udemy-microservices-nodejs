@@ -16,6 +16,19 @@
 - create a pod from docker image: `kubectl apply -f posts.yaml`
 - see created pods: `kubectl get pods`
 - delete a pod: `kubectl delete -f posts.yaml`
+- delete pod alternative: `kubectl delete pod <pod_name>`
+- execute the given command in a running pod: `kubectl exec -it <pod_name> <command>`
+- print out pod logs: `kubectl logs <pod_name>`
+- tell k8s to process the config: `kubectl aply -f <config_file_name>`
+- print out info about the running pod: `kubectl describe pod <pod_name>`
+- list all running Deployments: `kubectl get deployments`
+- describe Deployments: `kubectl describe deployment <deployment_name>`
+- create a Deployment from config file: `kubectl apply -f posts-depl.yaml`
+- delete a Deployment: `kubectl delete deployment <deployment_name>`
+- updating Deployment: `kubectl rollout restart deployment <deployment_name`
+- create a Service from config file: `kubectl apply -f posts-srv.yaml`
+- list Services: `kubectl get services`
+- describe Services: `kubectl describe service <service_name>`
 
 ## Minikube troubleshooting [info](https://medium.com/swlh/how-to-run-locally-built-docker-images-in-kubernetes-b28fbc32cc1d)
 
@@ -30,3 +43,22 @@ Afterward, you can build your image:
 Update, your pod manifest as shown above and then run:
 
 `kubectl apply -f posts.yaml`
+
+## Minikube
+
+- `minikube ip <NodePort>` and pass the provided ip with the NodePort to the browser, for example `http://192.168.49.2:31292/posts`
+
+## Steps:
+
+- run minikube: `minikube start`
+- `eval $(minikube docker-env)`
+- build image: `docker build -t zotijs/posts:0.0.1 .`
+- update pod manifest: `kubectl apply -f posts.yaml`
+- create deployment: `kubectl apply -f posts-depl.yaml`
+- create service: `kubectl apply -f posts-srv.yaml`
+- get the running ip: `minikube ip <NodePort>`
+
+## Aliases
+
+Aliases for bash added inside `~/.bash_aliases` so instead of `kubectl apply -f posts.yaml` I can do `k apply -f posts.yaml`.
+Also an alias for `docker ps` was added: `dps`
