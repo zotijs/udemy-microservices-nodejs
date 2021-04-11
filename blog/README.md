@@ -29,6 +29,7 @@
 - create a Service from config file: `kubectl apply -f posts-srv.yaml`
 - list Services: `kubectl get services`
 - describe Services: `kubectl describe service <service_name>`
+- multi apply (everything inside a directory): `k apply -f .`
 
 ## Minikube troubleshooting [info](https://medium.com/swlh/how-to-run-locally-built-docker-images-in-kubernetes-b28fbc32cc1d)
 
