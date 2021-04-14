@@ -63,3 +63,12 @@ Update, your pod manifest as shown above and then run:
 
 Aliases for bash added inside `~/.bash_aliases` so instead of `kubectl apply -f posts.yaml` I can do `k apply -f posts.yaml`.
 Also an alias for `docker ps` was added: `dps`
+
+## Ingress-Nginx
+
+- setup ingress-nginx: `minikube addons enable ingress`
+- verify ingress controller is running: `kubectl get pods -n kube-system`
+
+## Skaffold
+
+`skaffold dev`
