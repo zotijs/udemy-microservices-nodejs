@@ -11,6 +11,7 @@ export const errorHandler = (
     return res.status(err.statusCode).send({ errors: err.serializeErrors() });
   }
 
+  // Print more details about the "unknown" error
   console.error(err);
 
   res.status(400).send({
