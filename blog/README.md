@@ -48,6 +48,14 @@ Update, your pod manifest as shown above and then run:
 ## Minikube
 
 - `minikube ip <NodePort>` and pass the provided ip with the NodePort to the browser, for example `http://192.168.49.2:31292/posts`
+- `minikube delete --all --purge`: delete everything
+  Updating minikube:
+
+```
+minikube delete --all --purge
+curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+sudo install minikube-linux-amd64 /usr/local/bin/minikube
+```
 
 ## Steps:
 
