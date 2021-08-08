@@ -80,3 +80,11 @@ Also an alias for `docker ps` was added: `dps`
 ## Skaffold
 
 `skaffold dev`
+
+## Swapping contexts k8s and connecting to Digital Ocean
+
+- install doctl
+- run `doctl auth init` and paste the token provided from Digital Ocean API
+- get connection info for our new Digital Ocean cluster: `doctl kubernetes cluster kubeconfig save <digital_ocean_cluster_name>`
+- List all contexts: `kubectl config view`
+- Use a different context: `kubectl config use-context <context_name>` for example `kubectl config use-context minikube` for local context, `kubectl config use-context <digital_ocean_context_name>`
