@@ -19,7 +19,9 @@ app.use(
   cookieSession({
     signed: false,
     // make 'secure: false' on testing
-    secure: process.env.NODE_ENV !== "test",
+    // secure: process.env.NODE_ENV !== "test",
+    // for deployment, make it dynamic using process.env
+    secure: false,
   })
 );
 
