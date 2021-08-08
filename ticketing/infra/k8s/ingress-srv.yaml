@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-service
@@ -10,19 +10,38 @@ spec:
     - host: ticketing.dev
       http:
         paths:
+          - path: /api/payments/?(.*)
+            pathType: Exact
+            backend:
+              service:
+                name: payments-srv
+                port:
+                  number: 3000
           - path: /api/users/?(.*)
+            pathType: Exact
             backend:
-              serviceName: auth-srv
-              servicePort: 3000
+              service:
+                name: auth-srv
+                port:
+                  number: 3000
           - path: /api/tickets/?(.*)
+            pathType: Exact
             backend:
-              serviceName: tickets-srv
-              servicePort: 3000
+              service:
+                name: tickets-srv
+                port:
+                  number: 3000
           - path: /api/orders/?(.*)
+            pathType: Exact
             backend:
-              serviceName: orders-srv
-              servicePort: 3000
+              service:
+                name: orders-srv
+                port:
+                  number: 3000
           - path: /?(.*)
+            pathType: Exact
             backend:
-              serviceName: client-srv
-              servicePort: 3000
+              service:
+                name: client-srv
+                port:
+                  number: 3000
